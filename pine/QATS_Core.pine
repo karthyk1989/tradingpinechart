@@ -1,0 +1,72 @@
+//@version=6
+//==================================================================================================
+// Quantum AI Trading Suite Pro X (QATS)
+// Version : 0.1.0
+// Author  : Karthick Raj + OpenAI
+//==================================================================================================
+
+indicator(
+     title = "Quantum AI Trading Suite Pro X",
+     shorttitle = "QATS Pro X",
+     overlay = true,
+     max_labels_count = 500,
+     max_lines_count = 500,
+     max_boxes_count = 500,
+     max_polylines_count = 100)
+
+//==================================================================================================
+// INPUT GROUPS
+//==================================================================================================
+
+groupTrend      = "Trend Engine"
+groupMomentum   = "Momentum Engine"
+groupVolatility = "Volatility Engine"
+groupVolume     = "Volume Engine"
+groupDashboard  = "Dashboard"
+groupAlerts     = "Alerts"
+groupRisk       = "Risk Management"
+groupAppearance = "Appearance"
+groupDeveloper  = "Developer"
+
+//==================================================================================================
+// TREND INPUTS
+//==================================================================================================
+
+emaFastLength   = input.int(9,   "EMA Fast", minval=1, group=groupTrend)
+emaMidLength    = input.int(21,  "EMA Mid", group=groupTrend)
+emaSlowLength   = input.int(55,  "EMA Slow", group=groupTrend)
+emaMajorLength  = input.int(200, "EMA Major", group=groupTrend)
+
+supertrendATR   = input.int(10, "SuperTrend ATR", group=groupTrend)
+supertrendMult  = input.float(3.0, "SuperTrend Multiplier", step=0.1, group=groupTrend)
+
+//==================================================================================================
+// MOMENTUM
+//==================================================================================================
+
+rsiLength       = input.int(14,"RSI Length",group=groupMomentum)
+adxLength       = input.int(14,"ADX Length",group=groupMomentum)
+
+//==================================================================================================
+// VOLUME
+//==================================================================================================
+
+relativeVolumeLength = input.int(20,"Relative Volume",group=groupVolume)
+
+//==================================================================================================
+// DASHBOARD
+//==================================================================================================
+
+showDashboard = input.bool(true,"Show Dashboard",group=groupDashboard)
+
+//==================================================================================================
+// COLORS
+//==================================================================================================
+
+bullColor = color.rgb(0,200,120)
+bearColor = color.rgb(220,70,70)
+neutralColor = color.rgb(180,180,180)
+
+//==================================================================================================
+// END OF INITIALIZATION
+//==================================================================================================
